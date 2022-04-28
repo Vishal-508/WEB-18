@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        body{
+            background: linear-gradient(rgb(236, 217, 217),rgb(177, 172, 172));
+        }
+        #container{
+            display: flex;
+            width: 80%;
+            height: 80vh;
+            margin: 30px auto;
+            padding: 30px;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgb(236, 217, 217),rgb(177, 172, 172));
+        }
+        #front{
+            background: linear-gradient(0.25turn,rgb(236, 177, 67),#e66465);
+            width: 50%;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-left-radius: 60px;
+            border-bottom-left-radius: 60px;
+            border-right: 3px solid #e25656;
+            margin-right: 10px;
+        }
+        #back{
+            background: linear-gradient(0.75turn,rgb(236, 177, 67),#e66465);
+            width: 50%;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-right-radius: 60px;
+            border-bottom-right-radius: 60px;
+            border-left: 3px solid #e25656;
+            margin-left: 10px;
+            
+          
+        }
+        #container>div:hover{
+            background: #e25656;
+            
+        }
+        
+        a{
+            text-decoration: none;
+            font-size: 60px;
+            color: rgba(42, 42, 151, 0.89);
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="front"><a href="/frontend.html">FRONTEND</a></div>
+        <div id="back"><a href="/backend.html">BACKEND</a></div>
+    </div>
+</body>
+</html>

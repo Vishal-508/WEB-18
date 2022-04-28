@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        #container{
+            background: rgb(247, 192, 90);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 400px;
+            height: 80px;
+
+        }
+        #container>div>a{
+            text-decoration: none;
+            font-size: 42px;
+            font-weight: bold;
+
+
+        }
+        #form-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            margin: auto;
+            margin-top: 80px;
+            /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+        }
+        #main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 60%;
+            height: 600px;
+            /* border: 1px solid rgba(128, 128, 128, 0.479); */
+            margin: 40px;
+            border-radius: 20px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        #main>input{
+            margin: 10px;
+            font-size: 40px;
+            border: 2px solid orange;
+            border-radius: 10px;
+            padding: 15px 70px 15px 20px;
+
+        }
+        #main>#submit{
+        background: rgb(255, 189, 65);
+        padding: 15px;
+        margin-top: 40px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        #main>#submit:hover{
+            background: rgb(255, 175, 27);
+            border: 2px solid rgb(255, 175, 27);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="front"><a href="/frontend.html">FRONTEND</a></div>
+        <div id="back"><a href="/backend.html">BACKEND</a></div>
+    </div>
+    <div id="form-container">
+        <form id="main">
+            <input type="text" name="name" id="name" placeholder="Enter your name here">
+            <input type="url" name="img" id="imgurl" placeholder="Enter your img Url">
+            <input type="url" name="logo" id="logo" placeholder="Enter your logo Url">
+            <input type="text" name="role" id="role" placeholder="Enter you Role here">
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit",backfun);
+    function backfun(){
+        event.preventDefault();
+        
+        var arr=JSON.parse(localStorage.getItem("investorData"))||[];
+        
+        var obj={
+
+            investor_name:document.querySelector("#name").value,
+            investor_ungurl:document.querySelector("#imgurl").value,
+            investor_logo:document.querySelector("#logo").value,
+            investor_role:document.querySelector("#role").value
+        }
+    arr.push(obj)
+    localStorage.setItem("investorData",JSON.stringify(arr));
+    document.getElementById("name").value="";
+    document.getElementById("imgurl").value="";
+    document.getElementById("logo").value="";
+    document.getElementById("role").value="";
+    
+
+    }
+</script>

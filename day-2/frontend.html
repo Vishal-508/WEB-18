@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        #container{
+            background: rgb(247, 192, 90);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 400px;
+            height: 80px;
+
+        }
+        #container>div>a{
+            text-decoration: none;
+            font-size: 42px;
+            font-weight: bold;
+
+
+        }
+        #card-container{
+            display: flex;
+            padding: 30px;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+
+        }
+        #card{
+            width: 21%;
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px;
+            margin: 20px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        #card>img{
+            width: 100%;
+        }
+        #person-img{
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+        #card>p+img{
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        #card>h1{
+            margin: 15px 5px;
+
+        }
+        #card>p{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="front"><a href="/frontend.html">FRONTEND</a></div>
+        <div id="back"><a href="/backend.html">BACKEND</a></div>
+    </div>
+    <div id="card-container"></div>
+
+</body>
+</html>
+<script>
+    
+
+    var dataArr=JSON.parse(localStorage.getItem("investorData"));
+    displayData(dataArr);
+    function displayData(data){
+        data.forEach(function(ele){
+           var card= document.createElement("div");
+           card.setAttribute("id","card");
+            var image=document.createElement("img");
+            image.setAttribute("id","person-img");
+            image.setAttribute("src",ele.investor_ungurl);
+            // image.style.height="300px"
+            var name=document.createElement("h1");
+            name.innerText=ele.investor_name;
+            var role=document.createElement("p");
+            role.innerText=ele.investor_role;
+            var logo=document.createElement("img");
+            logo.setAttribute("src",ele.investor_logo);
+            card.append(image,name,role,logo);
+            document.getElementById("card-container").append(card);
+        })
+    }
+    
+</script>
